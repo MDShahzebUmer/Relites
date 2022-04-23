@@ -28,7 +28,7 @@
     <meta property="og:url" content="@yield('meta_url')"/>
     <meta property="og:description" content="@yield('meta_description',maanAppearance('meta_desc'))"/>
 
-    <title>@yield('title')</title>
+    <title>Relites - An Online Perfume Store</title>
 
     <!-- Apple Favicon -->
     <link rel="apple-touch-icon" href="{{ asset('uploads') }}/{{ maanAppearance('favicon') }}">
