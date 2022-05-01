@@ -21,7 +21,7 @@
     <meta name="twitter:label2" content="Color">
 
     <!-- Open Graph Data -->
-    <meta property="og:title" content="@yield('meta_title','My Bazar')"/>
+    <meta property="og:title" content="@yield('meta_title',"R'elites")"/>
     <meta property="og:type" content="eCommerce"/>
     <meta property="og:image" content="{{ asset('uploads/products/meta_image') }}/@yield('meta_image')"/>
     <meta property="og:site_name" content="{{ config('app.name') }}"/>
