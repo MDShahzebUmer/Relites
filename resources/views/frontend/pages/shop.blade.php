@@ -2,6 +2,7 @@
 
 @section('title',$title ?? 'Shop')
 
+
 @section('content')
 
     <!-- Breadcrumb Start -->

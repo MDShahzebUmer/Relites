@@ -348,7 +348,7 @@ class FrontController extends Controller
 
         if($tab == 'trends'){
             $products = Product::query()->inRandomOrder()->take(5)->get();
-        }elseif($tab == 'new-arrivals'){
+        }elseif($tab == 'mens-cologne'){
             $products = Product::query()
                 ->where('is_active',1)
                 ->orderByDesc('created_at')

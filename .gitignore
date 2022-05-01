@@ -23,3 +23,5 @@ yarn-error.log
 !.phpunit.result.cache
 
 !/.idea
+storage/installed
+composer.lock

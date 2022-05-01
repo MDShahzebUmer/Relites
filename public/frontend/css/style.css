@@ -5036,7 +5036,7 @@ input[type=number] {
     margin-bottom: 20px;
 }
 .maan-modal-content .logo img {
-    max-width: 100%;
+    max-width: 50%;
 }
 .maan-modal-content p {
     font-size: 16px;
