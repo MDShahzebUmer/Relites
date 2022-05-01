@@ -31,9 +31,9 @@
                                     data-name="R'elites"
                                     data-description="Razorpay"
                                     data-image="https://my-bazar.maantheme.com/uploads/favicon.svg"
-                                    data-prefill.name="name"
-                                    data-prefill.email="email"
-                                    data-theme.color="#FF8400">
+                                    data-prefill.name="Enter your name"
+                                    data-prefill.email="Enter your Email"
+                                    data-theme.color="#006EFF">
                             </script>
                         </form>
                     </div>
