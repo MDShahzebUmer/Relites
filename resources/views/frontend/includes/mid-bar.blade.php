@@ -7,7 +7,7 @@
                     <a href="{{ url('/') }}"><img src="{{ asset('uploads') }}/{{ maanAppearance('logo') }}" alt="logo"></a>
                 </div>
             </div>
-            <div class="d-none d-lg-block col-lg-6">
+            <div style="margin-bottom:10px"class="d-block d-lg-block col-lg-6">
                 <div class="mid-search">
                     <form action="{{ url('shop') }}" method="get">
                         <div class="input-group">
