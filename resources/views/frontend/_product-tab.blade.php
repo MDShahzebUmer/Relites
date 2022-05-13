@@ -38,12 +38,12 @@
             </div>
             <div class="tab-pane fade" id="new-arrivals" role="tabpanel" aria-labelledby="new-arrivals-tab">
                 <div class="row auto-margin-3">
-                    @if($newArrivals->count() == 0)
+                    @if($mensCologne->count() == 0)
                         <div class="col-12">
                             <p class="text-center">{{ __('UPCOMING...') }}</p>
                         </div>
                     @endif
-                    @foreach($newArrivals as $product)
+                    @foreach($mensCologne as $product)
                         <div class="col-sm-6 col-lg">
                             <x-frontend.product-card2 :product="$product"></x-frontend.product-card2>
                         </div>

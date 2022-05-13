@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::get('brands/{id}', 'BrandController@show');
     Route::get('brands', 'BrandController@index');
     Route::get('flash_sale', 'ProductController@flashSale');
-    Route::get('new_arrivals', 'ProductController@newArrivals');
+    Route::get('new_arrivals', 'ProductController@mensCologne');
     Route::get('popular_products', 'ProductController@popularProducts');
     Route::get('best_selling', 'ProductController@bestSelling');
     Route::get('trends', 'ProductController@trends');

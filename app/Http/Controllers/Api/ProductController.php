@@ -109,15 +109,15 @@ class ProductController extends Controller
         return $this->successResponse($flash_sale, $this->load_success['message']);
     }
 
-    public function newArrivals(): JsonResponse
+    public function mensCologne(): JsonResponse
     {
-        $new_arrivals = Product::query()
+        $mens_cologne = Product::query()
             ->with('images','details','category','brand','seller','colors','sizes')
             ->active()
             ->orderByDesc('created_at')
             ->take(4)
             ->get();
-        return $this->successResponse($new_arrivals, $this->load_success['message']);
+        return $this->successResponse($mens_cologne, $this->load_success['message']);
     }
 
     public function popularProducts() :JsonResponse

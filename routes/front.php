@@ -27,7 +27,7 @@ Route::get('cart',[FrontController::class,'cart'])->name('cart');
 
 Route::get('page/{url}',[FrontController::class,'page']);
 Route::get('best-selling',[FrontController::class,'bestSelling'])->name('frontend.best-selling');
-Route::get('mens-cologne',[FrontController::class,'newArrivals'])->name('frontend.mens-cologne');
+Route::get('mens-cologne',[FrontController::class,'mensCologne'])->name('frontend.mens-cologne');
 Route::get('trends',[FrontController::class,'trends'])->name('frontend.trends');
 Route::get('brands',[FrontController::class,'brands'])->name('frontend.brands');
 Route::get('shop',[FrontController::class,'shop'])->name('frontend.shop');

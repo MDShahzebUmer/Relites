@@ -96,7 +96,7 @@ class FrontController extends Controller
             ->take(5)
             ->get();
 
-        $newArrivals = Product::query()
+        $mensCologne = Product::query()
             ->where('is_active',1)
             ->orderByDesc('created_at')
             ->take(5)
@@ -122,7 +122,7 @@ class FrontController extends Controller
             ->get();
         /** Deal of the day product's query end */
 
-        return view('frontend.index',compact('categories','shopCategories','allProducts','newArrivals','bestSellers','featureProducts','trends','brands','banners','adPoster','bannerAds','discounts','offer'));
+        return view('frontend.index',compact('categories','shopCategories','allProducts','mensCologne','bestSellers','featureProducts','trends','brands','banners','adPoster','bannerAds','discounts','offer'));
     }
 
     public function shop()
@@ -418,7 +418,7 @@ class FrontController extends Controller
         return view('frontend.pages.shop',compact('products','title','categories','sizes','colors','prices','brands','sellers','populars'));
     }
 
-    public function newArrivals()
+    public function mensCologne()
     {
         $title = 'Mens Cologne';
 

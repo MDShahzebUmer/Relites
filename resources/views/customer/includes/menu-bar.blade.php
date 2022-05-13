@@ -10,7 +10,7 @@
                             <a href="{{ route('frontend.best-selling') }}" class="{{ isActiveMenu('best-selling') }}">{{ __('Best Selling') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('frontend.mens-cologne') }}" class="{{ isActiveMenu('new-arrivals') }}">{{ __('New Arrivals') }}</a>
+                            <a href="{{ route('frontend.mens-cologne') }}" class="{{ isActiveMenu('mens-cologne') }}">{{ __("Men's Cologne") }}</a>
                         </li>
                         <li>
                             <a href="{{ route('frontend.trends') }}" class="{{ isActiveMenu('trends') }}">{{ __('Trends') }}</a>
