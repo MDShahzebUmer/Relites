@@ -14,7 +14,7 @@ class User extends Authenticatable
 
     protected $dates = ['last_login_datetime','dob'];
 
-    protected $fillable = ['first_name','last_name','address','mobile','email','image','username','password','gender','dob','stop_email','is_approve','is_suspended','verification_code','verification_expire_at','last_login_datetime','is_active'];
+    protected $fillable = ['first_name','last_name','address','mobile','email','image','username','password','gender','date_of_birth','stop_email','is_approve','is_suspended','verification_code','verification_expire_at','last_login_datetime','is_active'];
 
     /**
      * Get the password for the user.

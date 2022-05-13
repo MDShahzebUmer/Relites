@@ -17,6 +17,15 @@
             @if($errors->has('last_name')) <p>{{ $errors->first('last_name') }}</p> @endif
         </div>
         <div class="input-group">
+            <span><img src="{{ asset('customer/img/icons/User.svg') }}" alt=""></span>
+            {{-- <label for="dateofbirth">
+                Date of Birth
+            </label> --}}
+            <input type="text" name="date_of_birth" value="{{ old('date_of_birth') }}" class="form-control" placeholder="Date of Birth" onfocus="(this.type='date')">
+            @if($errors->has('date_of_birth')) <p>{{ $errors->first('date_of_birth') }}</p> @endif
+        </div>
+
+        <div class="input-group">
             <span><img src="{{ asset('customer/img/icons/Call.svg') }}" alt=""></span>
             <input type="number" name="mobile" value="{{ old('mobile') }}" class="form-control" placeholder="Number">
             @if($errors->has('mobile')) <p>{{ $errors->first('mobile') }}</p> @endif
