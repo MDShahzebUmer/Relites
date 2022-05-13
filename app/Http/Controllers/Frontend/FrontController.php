@@ -420,7 +420,7 @@ class FrontController extends Controller
 
     public function newArrivals()
     {
-        $title = 'New Arrivals';
+        $title = 'Mens Cologne';
 
         $products = Product::query()
             ->active()
