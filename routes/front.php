@@ -85,7 +85,7 @@ Route::get('email/verify-notice',[VerificationController::class,'show'])->name('
 
 Route::get('email/verify/resend',[FrontController::class,'resend'])->name('verification.email.resend');
 
-Route::get('migrate',function(){
+Route::get('/migrate',function(){
     Artisan::call('migrate');
 });
 
