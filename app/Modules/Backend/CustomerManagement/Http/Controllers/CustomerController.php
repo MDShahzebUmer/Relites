@@ -86,6 +86,7 @@ class CustomerController extends Controller
                 "last_name" => $record->full_name(),
                 "email" => $record->email,
                 "mobile" => $record->mobile,
+                "date_of_birth" => $record->date_of_birth,
                 "gender" => $gender,
                 "is_active" => '<div class="form-switch"><input class="form-check-input status" type="checkbox"  data-id="' . $record->id . '"' . $checked . '></div>',
                 "is_suspended" => '<div class="form-switch"><input class="form-check-input suspend" type="checkbox"  data-id="' . $record->id . '"' . $suspend . '></div>',

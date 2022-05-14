@@ -26,7 +26,8 @@
                             <tr>
                                 <th scope="col">{{__('Name')}}</th>
                                 <th scope="col">{{__('Email')}}</th>
-                                <th scope="col">{{__('Phone Number')}}</th>
+                                <th scope="col">{{__('Mobile')}}</th>
+                                <th scope="col">{{__('DOB')}}</th>
                                 <th scope="col">{{__('Gender')}}</th>
                                 <th scope="col">{{__('Status')}}</th>
                                 <th scope="col">{{__('Suspended')}}</th>
@@ -89,7 +90,8 @@
                         { data: 'last_name' },
                         { data: 'email'},
                         { data: 'mobile' },
-                        { data: 'gender' },
+                        { data: 'date_of_birth' },
+                        {data: 'gender'},
                         { data: 'is_active' },
                         { data: 'is_suspended' },
                         { data: 'action',searchable:false,sortable:false },
