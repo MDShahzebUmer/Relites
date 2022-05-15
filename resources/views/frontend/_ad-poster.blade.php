@@ -16,8 +16,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="ad-post-text">
-                            <h4>{{ __('New Season 2021') }}</h4>
-                            <h2>{{ __('Sale') }} 10 <sup>%</sup> {{ __('off') }}</h2>
+                            <h4>{{ __('Perfume Collections 2022') }}</h4>
+                            <h2>{{ __('OFFER') }} 10 <sup>%</sup> {{ __('off') }}</h2>
                         </div>
                     </div>
                     <div class="col-lg-6">

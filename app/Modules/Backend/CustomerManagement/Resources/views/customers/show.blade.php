@@ -26,7 +26,7 @@
                 <div class="col-lg-8">{{$customer->date_of_birth}} </div>
             </div>
             <div class="form-group row">
-                <label class="col-lg-4">{{__('gender')}}</label>
+                <label class="col-lg-4">{{__('Gender')}}</label>
                 <div class="col-lg-8">@if($customer->user_gender==1) Male @elseif($customer->user_gender==2) Female @else Other @endif </div>
 
             </div>
