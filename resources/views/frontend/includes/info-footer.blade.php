@@ -40,7 +40,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="footer-right">
                             <h6>{{ __('Get In Touch') }}</h6>
                             <div class="payment-gateway">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
