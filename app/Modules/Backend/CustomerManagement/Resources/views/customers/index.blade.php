@@ -86,12 +86,15 @@
                 var table = $('#mDataTable');
                 table.DataTable({
                     ajax: "@auth('admin'){{route('backend.customer.list')}}@elseauth('seller'){{route('seller.customer.list')}}@endauth",
+
                     columns: [
                         { data: 'last_name' },
                         { data: 'email'},
                         { data: 'mobile' },
-                        { data: 'gender'},
+                        // { data: 'dob' },
+                        
                         { data: 'date_of_birth'},
+                        { data: 'gender'},
                         { data: 'is_active' },
                         { data: 'is_suspended' },
                         { data: 'action',searchable:false,sortable:false },
