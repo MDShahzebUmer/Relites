@@ -141,8 +141,8 @@
                         <x-frontend.category-widget :categories="$categories"></x-frontend.category-widget>
                         <x-frontend.brand-widget :brands="$brands"></x-frontend.brand-widget>
                         <x-frontend.price-widget :prices="$prices"></x-frontend.price-widget>
-                        <x-frontend.color-widget :colors="$colors"></x-frontend.color-widget>
-                        <x-frontend.size-widget :sizes="$sizes"></x-frontend.size-widget>
+                        {{-- <x-frontend.color-widget :colors="$colors"></x-frontend.color-widget>
+                        <x-frontend.size-widget :sizes="$sizes"></x-frontend.size-widget> --}}
                         <div class="sidebar-widget">
                             <x-frontend.product-widget :title="'Popular Today'" :products="$populars"></x-frontend.product-widget>
                         </div>
