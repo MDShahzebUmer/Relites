@@ -112,7 +112,7 @@
                                 </div>
                             </form>
                         </div>
-                        @if($product->sizes->count() > 0)
+                        {{-- @if($product->sizes->count() > 0)
                             <div class="product-size-wrap">
                                 <h6>{{ __('Size') }} :</h6>
                                 <ul>
@@ -141,7 +141,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
+                        @endif --}}
                         <div class="product-link">
                             <ul>
                                 <li><a href="javascript:addToCart({{$product->id}})" class="link-anime add-to-card">{{ __('Add to CartItem')}}</a></li>
