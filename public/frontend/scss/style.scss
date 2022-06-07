@@ -581,7 +581,10 @@ button.btn-anime {
                 color: $color-orange;
             }
         }
-        .dropdown-menu {
+        .dropdown-menu 
+        
+        {
+
             inset: unset !important;
             display: block !important;
             padding: 10px 0px;
@@ -798,11 +801,14 @@ header .main-header {
             }
         }
         .dropdown-menu {
+
+            
+
             inset: unset !important;
             display: block !important;
             padding: 10px 0px;
             top: calc(100% + 60px) !important;
-            right: -20px !important;
+            // right: -80px !important;
             transform: unset !important;
             border: none;
             border-radius: 0px;
