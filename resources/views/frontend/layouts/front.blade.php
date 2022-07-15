@@ -11,7 +11,7 @@
     <!-- Twitter Card Data -->
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@yield('meta_url')">
-    <meta name="twitter:title" content="@yield('meta_title','My Bazar')">
+    <meta name="twitter:title" content="@yield('meta_title','Relites')">
     <meta name="twitter:description" content="@yield('meta_description',maanAppearance('meta_desc'))">
     <meta name="twitter:creator" content="Maan Theme">
     <meta name="twitter:image" content="{{ asset('uploads/products/meta_image') }}/@yield('meta_image')">
@@ -21,7 +21,7 @@
     <meta name="twitter:label2" content="Color">
 
     <!-- Open Graph Data -->
-    <meta property="og:title" content="@yield('meta_title',"R'elites")"/>
+    <meta property="og:title" content="@yield('meta_title',"Relites")"/>
     <meta property="og:type" content="eCommerce"/>
     <meta property="og:image" content="{{ asset('uploads/products/meta_image') }}/@yield('meta_image')"/>
     <meta property="og:site_name" content="{{ config('app.name') }}"/>

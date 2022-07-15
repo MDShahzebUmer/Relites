@@ -1,6 +1,6 @@
 @extends('frontend.layouts.front')
 
-@section('title','My Bazar')
+@section('title','Relites')
 
 @section('content')
 
