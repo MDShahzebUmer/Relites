@@ -103,4 +103,19 @@ class Product extends Model
     {
         return $this->belongsToMany(Size::class);
     }
+
+     /**
+     * A product is belongs to many sizes
+     *
+     * @return BelongsToMany
+     */
+    public function productId(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function productName(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

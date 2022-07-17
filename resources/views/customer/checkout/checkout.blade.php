@@ -94,11 +94,26 @@
                                 <div class="col-12">
                                     <div class="input-group">
                                         <select name="country_id">
-                                            @foreach($countries as $country)
-                                                <option value="{{ $country->id }}" @if($billing->country_id ?? '' === $country->id) selected @endif>
+
+                                          
+                                                {{-- <option value="{{ $countries->id[104] }}"  selected>
+                                                    {{ $country->name }}
+                                                </option> --}}
+                                          
+                                                  @foreach($countries as $country)
+                                                <option value="{{ $country->id }}" @if( 104 === $country->id) selected @endif>
                                                     {{ $country->name }}
                                                 </option>
                                             @endforeach
+                                               
+
+                                            
+                                            
+                                            {{-- @foreach($countries as $country)
+                                                <option value="{{ $country->id }}" @if($billing->country_id ?? '' === $country->id) selected @endif>
+                                                    {{ $country->name }}
+                                                </option>
+                                            @endforeach --}}
                                         </select>
                                         @if($errors->has('country_id'))
                                             <div class="invalid-feedback">
@@ -213,10 +228,29 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <select name="shipping_country_id" id="">
-                                            @foreach($countries as $country)
-                                                <option value="{{ $country->id }}" @if($shipping->shipping_country_id ?? '' === $country->id) selected @endif>{{ $country->name }}</option>
+                                        <select name="shipping_state_id" id="10">
+                                   @foreach($states as $state)
+                                                <option value="{{ $state->id }}" @if($billing->state_id ?? '' === $state->id) selected @endif>
+                                                    {{ $state->state }}
+                                                </option>
                                             @endforeach
+                                        </select>
+                                        @if($errors->has('shipping_state_id'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('shipping_state_id') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <select name="shipping_country_id" id="104">
+                                            @foreach($countries as $country)
+                                            <option value="{{ $country->id }}" @if( 104 === $country->id) selected @endif>
+                                                {{ $country->name }}
+                                            </option>
+                                        @endforeach
+                                           
                                         </select>
                                         @if($errors->has('shipping_country_id'))
                                             <div class="invalid-feedback">

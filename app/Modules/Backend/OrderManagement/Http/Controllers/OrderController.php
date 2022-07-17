@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Modules\Backend\OrderManagement\Http\Controllers;
-
+use App\Http\Controllers\Frontend\APIController;
 use App\Http\Traits\ResponseMessage;
 use App\Models\Backend\WebAppearance;
 use App\Modules\Backend\OrderManagement\Entities\OrderDetail;
@@ -12,6 +12,8 @@ use Illuminate\Routing\Controller;
 use App\Modules\Backend\OrderManagement\Entities\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use App\Models\Api\Order as OrderCont;
 
 class OrderController extends Controller
 {
@@ -227,6 +229,7 @@ class OrderController extends Controller
 
                 "user_last_name" => $record->full_name(),
                 "user_country" => $record->country->name,
+                "user_state" => $record->state->name,
                 "details_sum_qty" => $record->details_sum_qty,
                 "created_at" => $record->created_at ? date("d.m.Y", strtotime($record->created_at)) : '',
                 "action" => $action
@@ -441,6 +444,7 @@ class OrderController extends Controller
 
                 "user_last_name" => $record->full_name(),
                 "user_country" => $record->country->name,
+                "user_state" => $record->state->name,
                 "details_sum_qty" => $record->details_sum_qty,
                 "created_at" => $record->created_at ? date("d.m.Y", strtotime($record->created_at)) : '',
                 "action" => $action
@@ -548,6 +552,7 @@ class OrderController extends Controller
 
                 "user_last_name" => $record->full_name(),
                 "user_country" => $record->country->name,
+                "user_state" => $record->state->name,
                 "details_sum_qty" => $record->details_sum_qty,
                 "action" => $action
             );
@@ -765,6 +770,7 @@ class OrderController extends Controller
 
                 "user_last_name" => $record->full_name(),
                 "user_country" => $record->country->name,
+                "user_state" => $record->state->name,
                 "details_sum_qty" => $record->details_sum_qty,
                 "action" => $action
             );
@@ -902,6 +908,20 @@ class OrderController extends Controller
     /* update order status */
     public function update(Request $request, $id)
     {
+        // if($request->isMethod('put')){
+        //     $data=$request->all();
+        //     if(data['order_stat']==5){
+        //         $getResults = OrderCont::pushOrder($data['order_id']);
+        //         $data['shipped_stat'] = 1;
+        //         $data['shipped_datetime'] = now();
+        //         if(!isset($getResults['status']) || (isset($getResults['status']) && isset($getResults['status']) == false)){
+        //             Session::put('error_message', $getResults['message']);
+        //             return redirect()->back();
+        //         }
+        //     }
+        // }
+
+
         $order = Order::findOrFail($id);
         if ($order) {
             $data = $request->only(['order_stat']);
@@ -916,10 +936,13 @@ class OrderController extends Controller
                 $data['picked_stat'] = 1;
                 $data['picked_datetime'] = now();
             }
+            
             if ($data['order_stat'] == 5) {
                 $data['shipped_stat'] = 1;
                 $data['shipped_datetime'] = now();
             }
+                
+    
             if ($data['order_stat'] == 6) {
                 $data['delivered_stat'] = 1;
                 $data['delivered_datetime'] = now();
@@ -935,6 +958,49 @@ class OrderController extends Controller
     /* update order status */
     public function updateOrderDetails(Request $request)
     {
+
+
+        if($request->isMethod('put') || $request->isMethod('push')){
+                
+            $data = $request->all();
+            $order_detail_id = $request->input('orders_details_id');
+            $order = Order::findOrFail($order_detail_id);
+            
+            if($data['order_stat'] == 5 ){
+                $getResults = OrderCont::pushOrder($data['order_id']);
+                // dd($data['order_stat']);
+                OrderDetail::where('id', $order_detail_id)->update(['order_stat'=>5]);
+
+                if($getResults){
+                    // dd($getResults['status']);
+                    Session::put('error_message', "It failed");
+                    return response()->json([
+                        'success' => true,
+                        'message' => $this->update_success_message['message'],
+                    ]);;
+                }
+
+                // if(!isset($getResults['status']) || (isset($getResults['status']) && $getResults['status']== "false"))
+                // // || (isset($getResults['status']) && $getResults['status']== "false")
+                //     {
+                        
+                    
+                //     Session::put('error_message', "It failed");
+                //     return 'Order not pushed';
+                //     }
+                    
+                //     }
+                    $order->update($data);
+                    return redirect()->back()->with($this->update_success_message);
+
+                 
+            } else {
+                return redirect()->back()->with($this->update_fail_message);
+            }
+        
+        $data = $request->all();
+
+    
         $order = Order::findOrFail($request->input('order_id'));
         if ($order) {
             $timelineData = $request->only(['order_stat', 'order_stat_desc', 'product_id']);
@@ -944,6 +1010,7 @@ class OrderController extends Controller
             $order_details = OrderDetail::find($order_detail_id);
             $timelineData['user_id'] = $order_details['user_id'];
             $timelineData['order_stat_datetime'] = now();
+
             if ($order_details) {
                 if ($stat == 7 && $stat > $order_details->order_stat) {
                     $order->update(['total_price' => ($order->total_price - $order_details->total_price)]);
@@ -957,6 +1024,10 @@ class OrderController extends Controller
                 $order_details->timelines()->updateOrCreate(['order_detail_id' => $order_detail_id, 'order_stat' => $stat, 'product_id' => $product_id], $timelineData);
             }
 
+            
+        
+
+
             return response()->json([
                 'success' => true,
                 'message' => $this->update_success_message['message'],
@@ -968,6 +1039,8 @@ class OrderController extends Controller
             ]);
         }
     }
+
+
 
     /**
      * Remove the specified resource from storage.

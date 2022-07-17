@@ -12,6 +12,9 @@ use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductReviewController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\CurrencyController;
+use App\Http\Controllers\Frontend\APIController;
+// use App\Http\Controllers\APIController;
+// use App\Http\Controllers\Frontend\APIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,7 @@ use App\Http\Controllers\Api\CurrencyController;
 */
 
 Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
-
+    
     Route::get('categories/{id}', 'CategoryController@show');
     Route::get('categories', 'CategoryController@index');
     Route::get('brands/{id}', 'BrandController@show');
@@ -49,6 +52,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::get('announcements','WebsiteController@announcements');
     Route::get('faq','WebsiteController@faq');
 
+
     /** Customer Auth Routes */
     Route::post('/login', [\App\Http\Controllers\Api\Auth\LoginController::class, 'login']);
     Route::post('register', [RegisterController::class, 'register']);
@@ -57,6 +61,8 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 
 });
+
+
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api', 'as' => 'api.'], function () {
 
     Route::get('logout', [LoginController::class, 'logout']);
@@ -90,3 +96,15 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api', 'as' => 'api.'],
 
 
 });
+
+
+Route::get('users',function(){
+
+	$users = AppUser::get();
+
+	return response()->json($users);
+
+});
+
+// Route::get("pushorder/{id}", [APIController::class, 'pushOrder']);
+Route::get("pushorder/{id}", [APIController::class, 'pushOrder']);

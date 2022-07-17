@@ -22,6 +22,7 @@ class UserBillingInfoController extends Controller
                 "post_code" => $request->user_post_code,
                 "user_city" => $request->user_city,
                 "country_id" => $request->user_country_id,
+                "shipping_state_id" => $request->shipping_state_id,
                 "user_mobile" => $request->user_mobile,
                 "user_email" => $request->user_email??''
             ];

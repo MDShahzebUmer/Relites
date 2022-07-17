@@ -139,6 +139,7 @@ class CustomerController extends Controller
             "shipping_post" => 'required',
             "shipping_town" => 'required',
             "shipping_country_id" => 'required',
+            "shipping_state_id" => 'required',
         ]);
 
         $request['user_id'] = auth('customer')->id();

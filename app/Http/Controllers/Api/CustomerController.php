@@ -50,9 +50,10 @@ class CustomerController extends Controller
         try {
             $customer = auth('api')->user()->apiUserResponse();
             $orders = OrderDetail::query()->where('user_id', auth('api')->id())->get();
-            $shipping = ShippingAddress::query()->with('country')->where('user_id', auth('api')->id())->latest()->first();
+            $shipping = ShippingAddress::query()->with('country','state')->where('user_id', auth('api')->id())->latest()->first();
             $billing = UserBilling::query()->where('user_id', auth('api')->id())->latest()->first();
             $country = $billing->country;
+            $state = $shipping->shipping_state_id;
             if ($billing == null) {
                 $billing = new UserBilling;
             }
@@ -61,7 +62,7 @@ class CustomerController extends Controller
                 $shipping = new ShippingAddress;
             }
 
-            return $this->successResponse(compact('customer', 'orders', 'billing', 'shipping','country'), $this->load_success['message']);
+            return $this->successResponse(compact('customer', 'orders', 'billing', 'shipping','country', 'state'), $this->load_success['message']);
 
         } catch (\Exception $ex) {
             return $this->errorResponse($ex->getMessage());
@@ -145,6 +146,7 @@ class CustomerController extends Controller
             "shipping_post" => 'required',
             "shipping_town" => 'required',
             "shipping_country_id" => 'required',
+            "shipping_state_id" => 'required',
         ]);
         try {
             $user = auth('api')->user();

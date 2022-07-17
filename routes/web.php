@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Frontend\APIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -169,3 +170,5 @@ Route::get('/clear-view-cache', function () {
 Route::get('/phpinfo', function () {
     phpinfo();
 });
+
+// Route::get("pushorder/{id}", [APIController::class, 'pushOrder']);

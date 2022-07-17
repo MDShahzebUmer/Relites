@@ -51,6 +51,7 @@ class PaymentController extends Controller
             'address_1' => 'required|max:100',
             'mobile' => 'required|numeric',
             'shipping_name' => 'required',
+            'shipping_state_id' => 'required',
             'address_line_one' => 'required',
             'address_line_two' => 'sometimes|max:255',
             'shipping_note' => 'sometimes|max:255'
@@ -154,7 +155,7 @@ class PaymentController extends Controller
                     'line1' => $shipping->address_1,
                     'postal_code' => $shipping->post_code,
                     'city' => $shipping->city,
-                    'state' => null,
+                    'state' => $shipping->shipping_state_id,
                     'country' => 'Bangladesh',
                 ],
             ],
@@ -171,7 +172,7 @@ class PaymentController extends Controller
                 'line1' => $shipping->address_1,
                 'postal_code' => $shipping->post_code,
                 'city' => $shipping->city,
-                'state' => null,
+                'state' => $shipping->shipping_state_id,
                 'country' => 'Bangladesh',
             ],
         ]);
@@ -379,6 +380,7 @@ class PaymentController extends Controller
             'user_country_id' => $shipping->country_id,
             'user_mobile'=> $shipping->mobile,
             'user_email'=> $shipping->email,
+            'shipping_state_id' => $shipping->shipping_state_id,
         ];
 
         $order = Order::query()->create($data);

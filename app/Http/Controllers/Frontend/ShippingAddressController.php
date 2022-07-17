@@ -27,7 +27,8 @@ class ShippingAddressController extends Controller
                 "shipping_post" => $request->shipping_post,
                 "shipping_town" => $request->shipping_town,
                 "shipping_country_id" => $request->shipping_country_id,
-                "shipping_note" => $request->shipping_note
+                "shipping_note" => $request->shipping_note,
+                "shipping_state_id" => $request->shipping_state_id,
             ];
 
             ShippingAddress::query()->create($data);

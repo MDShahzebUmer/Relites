@@ -32,6 +32,7 @@ class Order extends Model
         'shipping_post',
         'shipping_town',
         'shipping_country_id',
+        'shipping_state_id',
         'shipping_note',
         'payment_by',
         'user_id',
@@ -81,6 +82,11 @@ class Order extends Model
     public function country(): HasOne
     {
         return $this->hasOne(Country::class, 'id', 'user_country')->withDefault(['name' => '']);
+    }
+
+    public function state(): HasOne
+    {
+        return $this->hasOne(State::class, 'id', 'user_state')->withDefault(['name' => '']);
     }
 
     public function productPriceWithCurrency()

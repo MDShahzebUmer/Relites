@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Country;
+use App\Models\Backend\State;
+
 use App\Models\Frontend\FAQ;
 use App\Models\Frontend\ShippingAddress;
 use App\Models\Frontend\UserBilling;
@@ -38,12 +40,13 @@ class PageController extends Controller
             ->first();
 
         $countries = Country::query()->where('is_active',1)->get();
+        $states = State::all();
 
         if($cart == null){
             return view('frontend.pages.cart');
         }
 
-        return view('customer.checkout.checkout',compact('cart','billing','shipping','countries'));
+        return view('customer.checkout.checkout',compact('cart','billing','shipping','countries', 'states'));
     }
 
     /**

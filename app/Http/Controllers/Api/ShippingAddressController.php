@@ -23,6 +23,8 @@ class ShippingAddressController extends Controller
                 "shipping_post" => $request->shipping_post,
                 "shipping_town" => $request->shipping_town,
                 "shipping_country_id" => $request->shipping_country_id,
+                "shipping_state_id" => $request->shipping_state_id,
+
                 "shipping_mobile" => $request->shipping_mobile,
                 "shipping_email" => $request->shipping_email??'',
                 "note" => $request->shipping_note??''

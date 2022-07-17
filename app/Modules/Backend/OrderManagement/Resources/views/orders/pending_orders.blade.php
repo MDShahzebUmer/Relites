@@ -53,6 +53,7 @@
                         { data: 'order_no' },
                         { data: 'user_last_name' },
                         { data: 'user_country'},
+                        { data: 'user_state'},
                         { data: 'details_sum_qty' },
                         { data: 'created_at' },
 
